@@ -139,90 +139,134 @@ public class RangeTest {
     // Test shift for (-3, 0)
     @Test
     public void shiftNegZeroNeg() {
-    	Range testRangeNegZero = new Range(-4, -1);
-        assertEquals("The new range should be -4 to -1", testRangeNegZero,
+    	Range testRange = new Range(-4, -1);
+        assertEquals("The new range should be -4 to -1", testRange,
         Range.shift(exampleRangeNegZero, -1));
     }
     
     @Test
     public void shiftNegZeroZero() {
-    	Range testRangeNegZero = new Range(-3, 0);
-        assertEquals("The new range should be -3 to 0", testRangeNegZero,
+    	Range testRange = new Range(-3, 0);
+        assertEquals("The new range should be -3 to 0", testRange,
         Range.shift(exampleRangeNegZero, 0));
     }
     
     
     @Test
     public void shiftNegZeroPos() {
-    	Range testRangeNegZero = new Range(-2, 1);
-        assertEquals("The new range should be -2 to 1", testRangeNegZero,
+    	Range testRange = new Range(-2, 1);
+        assertEquals("The new range should be -2 to 1", testRange,
         Range.shift(exampleRangeNegZero, 1));
     }
     
     // Test shift for (0, 3)
     @Test
     public void shiftZeroPosNeg() {
-    	Range testRangeZeroPos = new Range(-1, 2);
-        assertEquals("The new range should be -1 to 2", testRangeZeroPos,
+    	Range testRange = new Range(-1, 2);
+        assertEquals("The new range should be -1 to 2", testRange,
         Range.shift(exampleRangeZeroPos, -1));
     }
     
     @Test
     public void shiftZeroPosZero() {
-    	Range testRangeZeroPos = new Range(0, 3);
-        assertEquals("The new range should be 0 to 3", testRangeZeroPos,
+    	Range testRange = new Range(0, 3);
+        assertEquals("The new range should be 0 to 3", testRange,
         Range.shift(exampleRangeZeroPos, 0));
     }
     
     @Test
     public void shiftZeroPosPos() {
-    	Range testRangeZeroPos = new Range(1, 4);
-        assertEquals("The new range should be 1 to 4", testRangeZeroPos,
+    	Range testRange = new Range(1, 4);
+        assertEquals("The new range should be 1 to 4", testRange,
         Range.shift(exampleRangeZeroPos, 1));
     }
     
     // Test shift for (-2.5, 2.5)
     @Test
     public void shiftNegPosNeg() {
-    	Range testRangeNegPos = new Range(-3.5, 1.5);
-        assertEquals("The new range should be -3.5 to 1.5", testRangeNegPos,
+    	Range testRange = new Range(-3.5, 1.5);
+        assertEquals("The new range should be -3.5 to 1.5", testRange,
         Range.shift(exampleRangeNegPos, -1));
     }
     
     @Test
     public void shiftNegPosZero() {
-    	Range testRangeNegPos = new Range(-2.5, 2.5);
-        assertEquals("The new range should be -2.5 to 2.5", testRangeNegPos,
+    	Range testRange = new Range(-2.5, 2.5);
+        assertEquals("The new range should be -2.5 to 2.5", testRange,
         Range.shift(exampleRangeNegPos, 0));
     }
     
     @Test
     public void shiftNegPosPos() {
-    	Range testRangeNegPos = new Range(-1.5, 3.5);
-        assertEquals("The new range should be -1.5 to 3.5", testRangeNegPos,
+    	Range testRange = new Range(-1.5, 3.5);
+        assertEquals("The new range should be -1.5 to 3.5", testRange,
         Range.shift(exampleRangeNegPos, 1));
     }
     
     // Test shift for (3, 3)
     @Test
     public void shiftEqualNeg() {
-    	Range testRangeEqual = new Range(2, 2);
-        assertEquals("The new range should be 2 to 2", testRangeEqual,
+    	Range testRange = new Range(2, 2);
+        assertEquals("The new range should be 2 to 2", testRange,
         Range.shift(exampleRangeEqual, -1));
     }
     
     @Test
     public void shiftEqualZero() {
-    	Range testRangeEqual = new Range(3, 3);
-        assertEquals("The new range should be 3 to 3", testRangeEqual,
+    	Range testRange = new Range(3, 3);
+        assertEquals("The new range should be 3 to 3", testRange,
         Range.shift(exampleRangeEqual, 0));
     }
     
     @Test
     public void shiftEqualPos() {
-    	Range testRangeEqual = new Range(4, 4);
-        assertEquals("The new range should be 4 to 4", testRangeEqual,
+    	Range testRange = new Range(4, 4);
+        assertEquals("The new range should be 4 to 4", testRange,
         Range.shift(exampleRangeEqual, 1));
+    }
+    
+    // Test shift for (0.111111111, 0.111111112)
+    @Test
+    public void shiftPosPosNeg() {
+    	Range testRange = new Range(-0.888888889, -0.888888888);
+        assertEquals("The new range should be -0.888888889 to -0.888888888", testRange,
+        Range.shift(exampleRangePosPos, -1));
+    }
+    
+    @Test
+    public void shiftPosPosZero() {
+    	Range testRange = new Range(0.111111111, 0.111111112);
+        assertEquals("The new range should be 0.111111111 to 0.111111112", testRange,
+        Range.shift(exampleRangePosPos, 0));
+    }
+    
+    @Test
+    public void shiftPosPosPos() {
+    	Range testRange = new Range(1.111111111, 1.111111112);
+        assertEquals("The new range should be 1.111111111 to 1.111111112", testRange,
+        Range.shift(exampleRangePosPos, 1));
+    }
+    
+    // Test shift for (-6, -3)
+    @Test
+    public void shiftNegNegNeg() {
+    	Range testRange = new Range(-7, -4);
+        assertEquals("The new range should be -7 to -4", testRange,
+        Range.shift(exampleRangeNegNeg, -1));
+    }
+    
+    @Test
+    public void shiftNegNegZero() {
+    	Range testRange = new Range(-6, -3);
+        assertEquals("The new range should be -6 to -3", testRange,
+        Range.shift(exampleRangeNegNeg, 0));
+    }
+    
+    @Test
+    public void shiftNegNegPos() {
+    	Range testRange = new Range(-5, -2);
+        assertEquals("The new range should be -5 to -2", testRange,
+        Range.shift(exampleRangeNegNeg, 1));
     }
     
     

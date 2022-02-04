@@ -228,7 +228,7 @@ public class RangeTest {
     // Test shift for (0.111111111, 0.111111112)
     @Test
     public void shiftPosPosNeg() {
-    	Range testRange = new Range(-0.888888889, -0.888888888);
+    	Range testRange = new Range((0.111111111-1),(0.111111112-1));
         assertEquals("The new range should be -0.888888889 to -0.888888888", testRange,
         Range.shift(exampleRangePosPos, -1));
     }
@@ -268,8 +268,8 @@ public class RangeTest {
         assertEquals("The new range should be -5 to -2", testRange,
         Range.shift(exampleRangeNegNeg, 1));
     }
-    // Shift Tests
-    // Test shift for 1/2
+    // Scale Tests
+    // Test scale for 1/2
     @Test
     public void scaleNegNegFrac() {
     	Range testRange = new Range(-3, -1.5);
@@ -281,16 +281,16 @@ public class RangeTest {
     public void scalePosPosFrac() {
     	Range testRange = new Range(1.5, 1.5);
         assertEquals("The new range should be 1.5 to 1.5", testRange,
-        Range.scale(exampleRangePosPos, 0.5));
+        Range.scale(exampleRangeEqual, 0.5));
     }
     
     @Test
     public void scaleNegPosFrac() {
     	Range testRange = new Range(-1.25, 1.25);
         assertEquals("The new range should be -1.25 to 1.25", testRange,
-        Range.shift(exampleRangeNegPos, 0.5));
+        Range.scale(exampleRangeNegPos, 0.5));
     }
-    // Test shift for x 2
+    // Test scale for x 2
     @Test
     public void scaleNegNegPos() {
     	Range testRange = new Range(-12, -6);
@@ -302,34 +302,15 @@ public class RangeTest {
     public void scalePosPosPos() {
     	Range testRange = new Range(6, 6);
         assertEquals("The new range should be 6 to 6", testRange,
-        Range.scale(exampleRangePosPos, 2));
+        Range.scale(exampleRangeEqual, 2));
     }
     @Test
     public void scaleNegPosPos() {
     	Range testRange = new Range(-5, 5);
         assertEquals("The new range should be -5 to 5", testRange,
-        Range.shift(exampleRangeNegPos, 2));
+        Range.scale(exampleRangeNegPos, 2));
     }
-    // Test shift for x (-2)
-    @Test
-    public void scaleNegNegNeg() {
-    	Range testRange = new Range(12, 6);
-        assertEquals("The new range should be 12 to 6", testRange,
-        Range.scale(exampleRangeNegNeg, -2));
-    }
-    @Test
-    public void scalePosPosNeg() {
-    	Range testRange = new Range(-6, -6);
-        assertEquals("The new range should be -6 to -6", testRange,
-        Range.scale(exampleRangePosPos, -2));
-    }
-    @Test
-    public void scaleNegPosNeg() {
-    	Range testRange = new Range(5, -5);
-        assertEquals("The new range should be 5 to -5", testRange,
-        Range.shift(exampleRangeNegPos, -2));
-    }
-    // Test shift for x 0
+    // Test scale for x 0
     @Test
     public void scaleNegNegZero() {
     	Range testRange = new Range(0,0);
@@ -346,7 +327,7 @@ public class RangeTest {
     public void scaleNegPosZero() {
     	Range testRange = new Range(0, 0);
         assertEquals("The new range should be 0 to 0", testRange,
-        Range.shift(exampleRangeNegPos, 0));
+        Range.scale(exampleRangeNegPos, 0));
     }
     
     @After

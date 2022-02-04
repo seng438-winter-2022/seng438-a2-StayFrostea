@@ -228,9 +228,9 @@ public class RangeTest {
     // Test shift for (0.111111111, 0.111111112)
     @Test
     public void shiftPosPosNeg() {
-    	Range testRange = new Range((0.111111111-1),(0.111111112-1));
-        assertEquals("The new range should be -0.888888889 to -0.888888888", testRange,
-        Range.shift(exampleRangePosPos, -1));
+    	Range testRange = new Range(-0.888888889,-0.888888888);
+        assertEquals("The new range should be -0.888888889 to -0.888888889", testRange,
+        Range.shift(exampleRangePosPos, -1, true));
     }
     
     @Test

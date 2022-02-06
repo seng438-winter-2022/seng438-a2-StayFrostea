@@ -218,8 +218,46 @@ public class DataUtilitiesTest extends DataUtilities {
     }
     
     /* * * * *
-     * TESITNG calculateRowTotal
+     * TESITNG clone
      * * * * */
+    @Test
+    public void cloneZero() {
+        // setup - DONE WITH PRIVATE CLASS FIELDS
+        // exercise
+    	double[][] testArrZero = {{0,0,0},{0,0,0},{0,0,0}};
+        double[][] result = DataUtilities.clone(testArrZero);
+        // verify
+        assertArrayEquals(result, testArrZero);
+        // tear-down: NONE in this test method
+    }
+    
+    @Test
+    public void clonePos() {
+    	double[][] testArrPos = {{1,1,1},{1,1,1},{1,1,1}};
+        double[][] result = DataUtilities.clone(testArrPos);
+        // verify
+        assertArrayEquals(result, testArrPos);
+        // tear-down: NONE in this test method
+    }
+    
+    @Test
+    public void cloneNeg() {
+    	double[][] testArrNeg = {{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
+        double[][] result = DataUtilities.clone(testArrNeg);
+        // verify
+        assertArrayEquals(result, testArrNeg);
+        // tear-down: NONE in this test method
+    }
+    
+    @Test
+    public void cloneEmpty() {
+    	double[][] testArrEmpty = null;
+        double[][] result = DataUtilities.clone(testArrEmpty);
+        // verify
+        assertArrayEquals(result, testArrEmpty);
+        // tear-down: NONE in this test method
+    }
+    
 
     @After
     public void tearDown() throws Exception {

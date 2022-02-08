@@ -23,7 +23,7 @@ cases were developed. Mock objects and Javadocs were utilized.
 
 Two test classes were developed: RangeTest and DataUtilitiesTest.
 
-**RangeTest**
+## RangeTest
 // To test getLowerBound method
 - getLowerBoundNegZero()
 - getLowerBoundZeroPos()
@@ -86,7 +86,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - scalePosPosZero()
 - scaleNegPosZero()
 
-**DataUtilitiesTest**
+## DataUtilitiesTest
 
 
 // write down the name of the test methods and classes. Organize the based on

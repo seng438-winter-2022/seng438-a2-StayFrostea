@@ -93,7 +93,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 the source code method // they test. identify which tests cover which partitions
 you have explained in the test strategy section //above
 
--Discussion of benefits and drawbacks of mocking
+## Discussion of benefits and drawbacks of mocking
 
 The use of mocking allows for dependencies to be accounted for and abstracted. The mocking will allow th user/tester to account for the expected output of DOC classes. The call from the SUT will be to a fake class that has controlled output.
 

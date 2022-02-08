@@ -170,7 +170,24 @@ Each group member has prepared for 1 simple test case and 1 stub/mock test case.
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Text…
+## Test Creation Issues
+
+- Creating the mocks in such a fashion that they could be reused for multiple test cases and test multiple functions without overcomplicating the values.
+- Minimizing test cases while providing adequate code coverage. Hard to know when to stop writing test cases.
+- Initially during setup there were some issues and differences between those of us who were using Mac vs. Windows vs. Linux. Some required an additional (non-included) jar file in order for even the example test case to run.
+
+## Theoretical Issues
+
+- Mockery was difficult to implement without any prior experience. The mockery portion of the notes was only covered for 1 lecture by the middle of the assignment, therefore some of the learning on the subject was done on the fly.
+- The getCumalitivePercentages javaDoc was very insufficient.
+- The explanation of what exactly clone() was used for in context with the rest of the DataUtilities class was somewhat lacking.
+
+## Significant Learning Points
+
+- Integration of JMock and JUnit testing into software development.
+- Creation of Mocks.
+- Creation of Stubs.
+- DOC concepts
 
 # 6 Comments/feedback on the lab itself
 

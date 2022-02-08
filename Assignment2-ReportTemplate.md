@@ -24,6 +24,7 @@ cases were developed. Mock objects and Javadocs were utilized.
 Two test classes were developed: RangeTest and DataUtilitiesTest.
 
 **RangeTest**
+// To test getLowerBound method
 - getLowerBoundNegZero()
 - getLowerBoundZeroPos()
 - getLowerBoundNegPos()
@@ -31,6 +32,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getLowerBoundPosPos()
 - getLowerBoundNegNeg()
 
+// To test getUpperBound method
 - getUpperBoundNegZero()
 - getUpperBoundZeroPos()
 - getUpperBoundnegPos()
@@ -38,6 +40,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getUpperBoundPosPos()
 - getUpperBoundNegNeg()
 
+// To test getLength method
 - getLengthNegZero()
 - getLengthZeroPos()
 - getLengthNegPos()
@@ -45,6 +48,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getLengthPosPos()
 - getLengthNegNeg()
 
+// To test shift method
 - shiftNegZeroNeg()
 - shiftNegZeroZero()
 - shiftNegZeroPos()
@@ -69,6 +73,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - shiftNegNegZero()
 - shiftNegNegPos()
     
+// To test scale method
 - scaleNegNegFrac()
 - scalePosPosFrac()
 - scaleNegPosFrac()

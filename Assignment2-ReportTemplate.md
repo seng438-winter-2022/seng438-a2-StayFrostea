@@ -17,26 +17,7 @@ cases were developed. Mock objects and Javadocs were utilized.
 
 # 2 Detailed description of unit test strategy
 
-## RangeTest
-For the RangeTest methods **getLowerBound**, **getUpperBound**, **getLength** and **shift**, we decided to test 6 different ranges to encompass
-negative, positive, zero, equal, and various decimal precisions. To do this
-we created 6 Range variables with the following lower and upper bounds:
--   (-3, 0) - negative to positive
--   (0, 3) - zero to positive
--   (-2.5, 2.5) - negative to positive, decimal accurate to tenth place
--   (3, 3) - equal
--   (0.111111111, 0.111111112) - positive to positive, decimal accurate to billionth place
--   (-6, -3) - negative to negative
-
-The provided Javadoc described the constructor and parameters for Range as follows:
-public Range(double lower, double upper)
-lower - the lower bound (must be <= upper bound).
-upper - the upper bound (must be >= lower bound).
-Thus, we felt that it was unnecessary to create test cases where the lower > upper,
-as this would cause the constructor to fail, and our intention is to test the methods.
-
-## DataUtilitiesTest
-
+// including the input partitions you have designed
 
 # 3 Test cases developed
 
@@ -112,7 +93,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 the source code method // they test. identify which tests cover which partitions
 you have explained in the test strategy section //above
 
-## Discussion of benefits and drawbacks of mocking
+## Discussion of Benefits and Drawbacks of Mocking
 
 The use of mocking allows for dependencies to be accounted for and abstracted. The mocking will allow th user/tester to account for the expected output of DOC classes. The call from the SUT will be to a fake class that has controlled output.
 
@@ -127,7 +108,17 @@ Cons:
 
 # 4 How the team work/effort was divided and managed
 
-Text…
+## Test Development
+
+Two group sessions were planned where each of the group members were present. During the sessions each of the students were involved in a group/pair programming scenario with one student coding while others investigated the details of the test cases. In addition, each member was responsible for contributing to small portions of test cases which were not finished during these sessions.
+
+## Report Writing
+
+During the preperation of this report, each group member was able to provide there input section by section through group chat and meetings. The overall writing of the report was done as a group effort over the course of the last week with one formal meeting to finish up and solidify the report.
+
+## Presentation of Findings (TA Presentation)
+
+Each group member has prepared for 1 simple test case and 1 stub/mock test case. Each group member will be able to explain the workings of the test cases and the relevance of the stub/mock framework.
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 

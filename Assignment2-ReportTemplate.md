@@ -17,7 +17,32 @@ cases were developed. Mock objects and Javadocs were utilized.
 
 # 2 Detailed description of unit test strategy
 
-// including the input partitions you have designed
+## RangeTest
+For the RangeTest methods **getLowerBound**, **getUpperBound**, **getLength** and **shift**, 
+we decided to test 6 different ranges to encompass negative, positive, zero, equal, and various 
+decimal precisions. To do this we created 6 Range variables with the following lower and upper bounds:
+-   (-3, 0) - negative to positive
+-   (0, 3) - zero to positive
+-   (-2.5, 2.5) - negative to positive, decimal accurate to tenth place
+-   (3, 3) - equal
+-   (0.111111111, 0.111111112) - positive to positive, decimal accurate to billionth place
+-   (-6, -3) - negative to negative
+
+<br>The provided Javadoc described the constructor and parameters for Range as follows:</br>
+<br>public Range(double lower, double upper)</br>
+<br>lower - the lower bound (must be <= upper bound).</br>
+<br>upper - the upper bound (must be >= lower bound).</br>
+<br>Thus, we felt that it was unnecessary to create test cases where the lower > upper,
+as this would cause the constructor to fail, and our intention is to test the methods.</br>
+
+<br>For the method **shift**, we decided to test the above ranges with the shift values -1, 0, and 1.
+
+<br>For the method **scale**, we decided to test the above ranges with the scale values -2, 0, 0.5, 1, and 2,
+as these represent negative scaling, zeroing, halving, maintaining the current values and doubling,
+which each have different behaviours.
+
+## DataUtilitiesTest
+
 
 # 3 Test cases developed
 
@@ -25,6 +50,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 
 ## RangeTest
 // To test getLowerBound method
+// Names formatted as getLowerBoundXY() where X represents lower bound, and Y represents upper bound.
 - getLowerBoundNegZero()
 - getLowerBoundZeroPos()
 - getLowerBoundNegPos()
@@ -33,6 +59,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getLowerBoundNegNeg()
 
 // To test getUpperBound method
+// Names formatted as getUpperBoundXY() where X represents lower bound, and Y represents upper bound.
 - getUpperBoundNegZero()
 - getUpperBoundZeroPos()
 - getUpperBoundnegPos()
@@ -41,6 +68,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getUpperBoundNegNeg()
 
 // To test getLength method
+// Names formatted as getLengthXY() where X represents lower bound, and Y represents upper bound.
 - getLengthNegZero()
 - getLengthZeroPos()
 - getLengthNegPos()
@@ -49,6 +77,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getLengthNegNeg()
 
 // To test shift method
+// Names formatted as shiftXYZ() where X represents lower bound, Y represents upper bound, and Z represents shift amount.
 - shiftNegZeroNeg()
 - shiftNegZeroZero()
 - shiftNegZeroPos()
@@ -74,6 +103,7 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - shiftNegNegPos()
     
 // To test scale method
+// Names formatted as scaleXYZ() where X represents lower bound, Y represents upper bound, and Z represents scaling factor.
 - scaleNegNegFrac()
 - scalePosPosFrac()
 - scaleNegPosFrac()
@@ -87,7 +117,6 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - scaleNegPosZero()
 
 ## DataUtilitiesTest
-
 
 // write down the name of the test methods and classes. Organize the based on
 the source code method // they test. identify which tests cover which partitions

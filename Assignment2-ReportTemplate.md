@@ -17,7 +17,26 @@ cases were developed. Mock objects and Javadocs were utilized.
 
 # 2 Detailed description of unit test strategy
 
-// including the input partitions you have designed
+## RangeTest
+For the RangeTest methods **getLowerBound**, **getUpperBound**, **getLength** and **shift**, we decided to test 6 different ranges to encompass
+negative, positive, zero, equal, and various decimal precisions. To do this
+we created 6 Range variables with the following lower and upper bounds:
+-   (-3, 0) - negative to positive
+-   (0, 3) - zero to positive
+-   (-2.5, 2.5) - negative to positive, decimal accurate to tenth place
+-   (3, 3) - equal
+-   (0.111111111, 0.111111112) - positive to positive, decimal accurate to billionth place
+-   (-6, -3) - negative to negative
+
+The provided Javadoc described the constructor and parameters for Range as follows:
+public Range(double lower, double upper)
+lower - the lower bound (must be <= upper bound).
+upper - the upper bound (must be >= lower bound).
+Thus, we felt that it was unnecessary to create test cases where the lower > upper,
+as this would cause the constructor to fail, and our intention is to test the methods.
+
+## DataUtilitiesTest
+
 
 # 3 Test cases developed
 

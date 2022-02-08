@@ -43,14 +43,13 @@ which each have different behaviours.
 
 ## DataUtilitiesTest
 
-
 # 3 Test cases developed
 
 Two test classes were developed: RangeTest and DataUtilitiesTest.
 
 ## RangeTest
-// To test getLowerBound method
-// Names formatted as getLowerBoundXY() where X represents lower bound, and Y represents upper bound.
+### To test getLowerBound method
+Names formatted as getLowerBoundXY() where X represents lower bound, and Y represents upper bound.
 - getLowerBoundNegZero()
 - getLowerBoundZeroPos()
 - getLowerBoundNegPos()
@@ -58,8 +57,8 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getLowerBoundPosPos()
 - getLowerBoundNegNeg()
 
-// To test getUpperBound method
-// Names formatted as getUpperBoundXY() where X represents lower bound, and Y represents upper bound.
+### To test getUpperBound method
+Names formatted as getUpperBoundXY() where X represents lower bound, and Y represents upper bound.
 - getUpperBoundNegZero()
 - getUpperBoundZeroPos()
 - getUpperBoundnegPos()
@@ -67,8 +66,8 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getUpperBoundPosPos()
 - getUpperBoundNegNeg()
 
-// To test getLength method
-// Names formatted as getLengthXY() where X represents lower bound, and Y represents upper bound.
+### To test getLength method
+Names formatted as getLengthXY() where X represents lower bound, and Y represents upper bound.
 - getLengthNegZero()
 - getLengthZeroPos()
 - getLengthNegPos()
@@ -76,8 +75,8 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - getLengthPosPos()
 - getLengthNegNeg()
 
-// To test shift method
-// Names formatted as shiftXYZ() where X represents lower bound, Y represents upper bound, and Z represents shift amount.
+### To test shift method
+Names formatted as shiftXYZ() where X represents lower bound, Y represents upper bound, and Z represents shift amount.
 - shiftNegZeroNeg()
 - shiftNegZeroZero()
 - shiftNegZeroPos()
@@ -102,8 +101,8 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 - shiftNegNegZero()
 - shiftNegNegPos()
     
-// To test scale method
-// Names formatted as scaleXYZ() where X represents lower bound, Y represents upper bound, and Z represents scaling factor.
+### To test scale method
+Names formatted as scaleXYZ() where X represents lower bound, Y represents upper bound, and Z represents scaling factor.
 - scaleNegNegFrac()
 - scalePosPosFrac()
 - scaleNegPosFrac()
@@ -118,9 +117,29 @@ Two test classes were developed: RangeTest and DataUtilitiesTest.
 
 ## DataUtilitiesTest
 
-// write down the name of the test methods and classes. Organize the based on
-the source code method // they test. identify which tests cover which partitions
-you have explained in the test strategy section //above
+### To test calculateColumnTotal method
+-   calculateColumnTotalForZero()
+-   calculateColumnTotalForPos()
+-   calculateColumnTotalForNeg()
+-   calculateColumnTotalForEmpty()
+
+### To test calculateRowTotal method
+-   calculateRowTotalForZero()
+-   calculateRowTotalForPos()
+-   calculateRowTotalForNeg()
+-   calculateRowTotalForEmpty()
+
+### To test createNumberArray method
+
+### To test createNumberArray2D method
+
+### To test getCumulativePercentages method
+
+### To test clone method
+-   cloneZero()
+-   clonePos()
+-   cloneNeg()
+-   cloneEmpty()
 
 ## Discussion of Benefits and Drawbacks of Mocking
 

@@ -11,16 +11,14 @@
 
 # 1 Introduction
 
-The purpose of this lab was to learn to develop tests using JUnit and Eclipse
-with a focus on requirements. Before implementing tests, test strategies and test
-cases were developed. Mock objects and Javadocs were utilized.
+The purpose of this lab was to learn the process of developing tests using JUnit and Eclipse with a focus on requirements. Before implementing tests, black-box strategies, test cases, and equivalence classes were outlined. Mock objects and Javadocs were utilized in the implementation of tests.
 
 # 2 Detailed description of unit test strategy
 
 ## RangeTest
-For the RangeTest methods **getLowerBound**, **getUpperBound**, **getLength** and **shift**, 
-we decided to test 6 different ranges to encompass negative, positive, zero, equal, and various 
-decimal precisions. To do this we created 6 Range variables with the following lower and upper bounds:
+For the RangeTest methods **getLowerBound** (1), **getUpperBound** (2), **getLength** (3) and **shift** (4),
+we decided to test different equivalence classes to encompass negative, positive, zero, equal, and various
+decimal precisions. To do this, we created 6 Range variables with the following lower and upper bounds:
 -   (-3, 0) - negative to positive
 -   (0, 3) - zero to positive
 -   (-2.5, 2.5) - negative to positive, decimal accurate to tenth place
@@ -35,13 +33,23 @@ decimal precisions. To do this we created 6 Range variables with the following l
 <br>Thus, we felt that it was unnecessary to create test cases where the lower > upper,
 as this would cause the constructor to fail, and our intention is to test the methods.</br>
 
-<br>For the method **shift**, we decided to test the above ranges with the shift values -1, 0, and 1.
+<br>For the method **shift** (4), we decided to test the above ranges with the shift values -1, 0, and 1. This tests the three general cases of use for this method: shifting by a negative number, positive number, and by zero.
 
-<br>For the method **scale**, we decided to test the above ranges with the scale values -2, 0, 0.5, 1, and 2,
-as these represent negative scaling, zeroing, halving, maintaining the current values and doubling,
-which each have different behaviours.
+<br>For the method **scale** (5), we decided to test the above ranges with the scale values -2, 0, 0.5, 1, and 2, as these represent negative scaling, zeroing, halving, maintaining the current values and doubling-- all of which require different method behaviour.
 
 ## DataUtilitiesTest
+Five methods from the DataUtilities class were tested, namely: **calculateColumnTotal()** (1), **calculateRowTotal()** (2), **clone()** (3), !!ADD(), and !!ADD(). In calculating column and row totals, we tested cases where the methods returned both negative and positive totals, as well as zero. We also considered the case of empty inputs, where the methods were expected to also return zero, and the case of null inputs, where the methods were expected to throw an error. Mock Values2D objects with the following structure were used:
+-   First row [-5.5  5.5 -5.5  5.5 -5.5  5.5] and column [-5.5  5.5 -5.5  5.5 -5.5  5.5] summing to zero
+-   First row [100 100 100] and column [100 100 100] summing to positive number
+-   First row [-100 -100 -100] and column [-100 -100 -100] summing to negative number
+-   No rows or columns, resulting in zero
+-   Null rows and columns, resulting in an IllegalArugmentException error
+
+We ensured that each mock object was properly created during the setup as were not testing the interfaces Values2D and KeyedValues, but rather the ability of DataUtilities methods to handle different inputs. This includes having each mock object return correct values through simulated getters and setters.
+
+
+The **clone()** (3) method was tested using similar positive, negative and zero-partitioning. (... continue ...)
+The IllegalArugmentException error should be thrown when cloning a null array.
 
 # 3 Test cases developed
 
@@ -100,7 +108,7 @@ Names formatted as shiftXYZ() where X represents lower bound, Y represents upper
 - shiftNegNegNeg()
 - shiftNegNegZero()
 - shiftNegNegPos()
-    
+
 ### To test scale method
 Names formatted as scaleXYZ() where X represents lower bound, Y represents upper bound, and Z represents scaling factor.
 - scaleNegNegFrac()
@@ -143,15 +151,16 @@ Names formatted as scaleXYZ() where X represents lower bound, Y represents upper
 
 ## Discussion of Benefits and Drawbacks of Mocking
 
-The use of mocking allows for dependencies to be accounted for and abstracted. The mocking will allow th user/tester to account for the expected output of DOC classes. The call from the SUT will be to a fake class that has controlled output.
+The use of mocking allows for dependencies to be accounted for and abstracted. The mocking will allow the user/tester to account for the expected output of DOC classes. The call from the SUT will be to a fake class that has controlled output. In our test cases, we ensured that the mocked output of these objects was correctly implemented to ensure only one element was being tested.
 
 Pros:
-- Allows for removal of dependency on the DOC. By doing so, the test can be intepreted to only depend on the functionality of the SUT and it's inner workings.
+- This allows for the removal of dependency on the DOC. Specifically, the test can be intepreted to only depend on the functionality of the SUT and its inner workings.
 - Mocks can be a very useful way of organizing code and testing the outgoing related function calls and incoming return value integrations. This allows for much better I/O reliability and more extensive testing.
 
 Cons:
 - This is still an iterative approach which will have many cases.
-- If the SUT is simple then this method is easy to implement, however as the number of outgoing calls rise, the size/number of mocks made must also increase which adds complexity to the testing code. The stubs as well may grow in size and complexity.
+- Each iteration requires the proper implementation of a mocked class. Tests should not be failing due to the incorrect mocking of objects.
+- If the SUT is simple then this method is easy to implement, however as the number of outgoing calls rise, the size/number of mocks made must also increase which adds complexity to the testing code. The stubs may also grow in size and complexity.
 - Overall setting up the tests is more complex and difficult.
 
 # 4 How the team work/effort was divided and managed
@@ -190,5 +199,4 @@ Each group member has prepared for 1 simple test case and 1 stub/mock test case.
 - DOC concepts
 
 # 6 Comments/feedback on the lab itself
-
-Text…
+This lab was an enjoyable way of practicing black box testing strategies. Our team benefitted from laying out a distinct strategy at the start the lab. The use of mocking was a new concept and it inspired a curiosity for alternative approaches.

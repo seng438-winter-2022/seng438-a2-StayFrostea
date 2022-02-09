@@ -151,8 +151,6 @@ Names formatted as scaleXYZ() where X represents lower bound, Y represents upper
 - createNumberArray2DByThreeNeg()
 - createNumberArray2DByThreeSmallNum()
 
-### To test getCumulativePercentages method
-
 ### To test clone method
 -   cloneZero()
 -   clonePos()
@@ -198,7 +196,6 @@ Each group member has prepared for 1 simple test case and 1 stub/mock test case.
 ## Theoretical Issues
 
 - Mockery was difficult to implement without any prior experience. The mockery portion of the notes was only covered for 1 lecture by the middle of the assignment, therefore some of the learning on the subject was done on the fly.
-- The getCumalitivePercentages javaDoc was very insufficient.
 - The explanation of what exactly clone() was used for in context with the rest of the DataUtilities class was somewhat lacking.
 
 ## Significant Learning Points

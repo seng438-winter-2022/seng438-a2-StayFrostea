@@ -199,13 +199,6 @@ public class RangeTest {
      * TESITNG shift
      * * * * */
 
-    /* *
-     *
-     * Is this doing what we need it to do?
-     * we want to test the same range with shift -1, +0, and +1
-     *
-     * */
-
     /* Testing shift method on a range spanning negative to zero using a negative shift
      */
     @Test
@@ -215,7 +208,7 @@ public class RangeTest {
         Range.shift(exampleRangeNegZero, -1));
     }
 
-    /* Testing shift method on a range spanning negative to negative using a zero shift
+    /* Testing shift method on a range spanning negative to zero using a zero shift
      */
     @Test
     public void shiftNegZeroZero() {
@@ -224,7 +217,7 @@ public class RangeTest {
         Range.shift(exampleRangeNegZero, 0));
     }
 
-    /* Testing shift method on a range spanning negative to positive using a positive shift
+    /* Testing shift method on a range spanning negative to zero using a positive shift
      */
     @Test
     public void shiftNegZeroPos() {
@@ -233,7 +226,7 @@ public class RangeTest {
         Range.shift(exampleRangeNegZero, 1));
     }
 
-    /* Testing shift method on a range spanning negative to positive using a negative shift
+    /* Testing shift method on a range spanning zero to positive to positive using a negative shift
      */
     @Test
     public void shiftZeroPosNeg() {
@@ -251,7 +244,7 @@ public class RangeTest {
         Range.shift(exampleRangeZeroPos, 0));
     }
 
-    /* Testing shift method on a range spanning positive numbers using a positive shift
+    /* Testing shift method on a range spanning zero to positive using a positive shift
      */
     @Test
     public void shiftZeroPosPos() {
@@ -287,7 +280,7 @@ public class RangeTest {
         Range.shift(exampleRangeNegPos, 1));
     }
 
-    /* Testing shift method on a range spanning positive to positive using a negative shift
+    /* Testing shift method on a range spanning one positive number using a negative shift
      */
     @Test
     public void shiftEqualNeg() {
@@ -296,7 +289,7 @@ public class RangeTest {
         Range.shift(exampleRangeEqual, -1));
     }
 
-    /* Testing shift method on a range spanning positive to positive using a zero shift
+    /* Testing shift method on a range spanning one positive number using a zero shift
      */
     @Test
     public void shiftEqualZero() {
@@ -305,7 +298,7 @@ public class RangeTest {
         Range.shift(exampleRangeEqual, 0));
     }
 
-    /* Testing shift method on a range spanning positive to positive using a positive shift
+    /* Testing shift method on a range spanning one positive number using a positive shift
      */
     @Test
     public void shiftEqualPos() {
@@ -372,8 +365,8 @@ public class RangeTest {
      * TESITNG scale
      * * * * */
 
-    // Scale Tests
-    // Test scale for 1/2
+    /* Testing scale method on a range spanning negative to negative using scale of 1/2
+     */
     @Test
     public void scaleNegNegFrac() {
     	Range testRange = new Range(-3, -1.5);
@@ -381,6 +374,8 @@ public class RangeTest {
         Range.scale(exampleRangeNegNeg, 0.5));
     }
 
+    /* Testing scale method on a range spanning one number using scale of 1/2
+     */
     @Test
     public void scalePosPosFrac() {
     	Range testRange = new Range(1.5, 1.5);
@@ -388,13 +383,17 @@ public class RangeTest {
         Range.scale(exampleRangeEqual, 0.5));
     }
 
+    /* Testing scale method on a range spanning negative to positive using scale of 1/2
+     */
     @Test
     public void scaleNegPosFrac() {
     	Range testRange = new Range(-1.25, 1.25);
         assertEquals("The new range should be -1.25 to 1.25", testRange,
         Range.scale(exampleRangeNegPos, 0.5));
     }
-    // Test scale for x 2
+
+    /* Testing scale method on a range spanning negative to negative using scale of 2
+     */
     @Test
     public void scaleNegNegPos() {
     	Range testRange = new Range(-12, -6);
@@ -402,31 +401,44 @@ public class RangeTest {
         Range.scale(exampleRangeNegNeg, 2));
     }
 
+    /* Testing scale method on a range spanning one number using scale of 2
+     */
     @Test
     public void scalePosPosPos() {
     	Range testRange = new Range(6, 6);
         assertEquals("The new range should be 6 to 6", testRange,
         Range.scale(exampleRangeEqual, 2));
     }
+
+    /* Testing scale method on a range spanning negative to positive using scale of 2
+     */
     @Test
     public void scaleNegPosPos() {
     	Range testRange = new Range(-5, 5);
         assertEquals("The new range should be -5 to 5", testRange,
         Range.scale(exampleRangeNegPos, 2));
     }
-    // Test scale for x 0
+
+    /* Testing scale method on a range spanning negative to negative using scale of 0
+     */
     @Test
     public void scaleNegNegZero() {
     	Range testRange = new Range(0,0);
         assertEquals("The new range should be 0 to 0", testRange,
         Range.scale(exampleRangeNegNeg, 0));
     }
+
+    /* Testing scale method on a range spanning positive to positive using scale of 0
+     */
     @Test
     public void scalePosPosZero() {
     	Range testRange = new Range(0, 0);
         assertEquals("The new range should be 0 to 0", testRange,
         Range.scale(exampleRangePosPos, 0));
     }
+
+    /* Testing scale method on a range spanning negative to positive using scale of 0
+     */
     @Test
     public void scaleNegPosZero() {
     	Range testRange = new Range(0, 0);

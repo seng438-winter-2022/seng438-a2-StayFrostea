@@ -16,9 +16,7 @@ The purpose of this lab was to learn the process of developing tests using JUnit
 # 2 Detailed description of unit test strategy
 
 ## RangeTest
-For the RangeTest methods **getLowerBound** (1), **getUpperBound** (2), **getLength** (3) and **shift** (4),
-we decided to test different equivalence classes to encompass negative, positive, zero, equal, and various
-decimal precisions. To do this, we created 6 Range variables with the following lower and upper bounds:
+For the RangeTest methods **getLowerBound** (1), **getUpperBound** (2), **getLength** (3) and **shift** (4), we decided to test different equivalence classes to encompass negative, positive, zero, equal, and various decimal precisions. To do this, we created 6 Range variables with the following lower and upper bounds:
 -   (-3, 0) - negative to positive
 -   (0, 3) - zero to positive
 -   (-2.5, 2.5) - negative to positive, decimal accurate to tenth place
@@ -30,15 +28,14 @@ decimal precisions. To do this, we created 6 Range variables with the following 
 <br>public Range(double lower, double upper)</br>
 <br>lower - the lower bound (must be <= upper bound).</br>
 <br>upper - the upper bound (must be >= lower bound).</br>
-<br>Thus, we felt that it was unnecessary to create test cases where the lower > upper,
-as this would cause the constructor to fail, and our intention is to test the methods.</br>
+<br>Thus, we felt that it was unnecessary to create test cases where the lower > upper, as this would cause the constructor to fail, and our intention is to test the methods.</br>
 
 <br>For the method **shift** (4), we decided to test the above ranges with the shift values -1, 0, and 1. This tests the three general cases of use for this method: shifting by a negative number, positive number, and by zero.
 
 <br>For the method **scale** (5), we decided to test the above ranges with the scale values -2, 0, 0.5, 1, and 2, as these represent negative scaling, zeroing, halving, maintaining the current values and doubling-- all of which require different method behaviour.
 
 ## DataUtilitiesTest
-Five methods from the DataUtilities class were tested, namely: **calculateColumnTotal()** (1), **calculateRowTotal()** (2), **clone()** (3), !!ADD(), and !!ADD(). In calculating column and row totals, we tested cases where the methods returned both negative and positive totals, as well as zero. We also considered the case of empty inputs, where the methods were expected to also return zero, and the case of null inputs, where the methods were expected to throw an error. Mock Values2D objects with the following structure were used:
+Five methods from the DataUtilities class were tested, namely: **calculateColumnTotal** (1), **calculateRowTotal** (2), **clone** (3), **createNumberArray** (4), and **createNumberArray2D** (5). In calculating column and row totals, we tested cases where the methods returned both negative and positive totals, as well as zero. We also considered the case of empty inputs, where the methods were expected to also return zero, and the case of null inputs, where the methods were expected to throw an error. Mock Values2D objects with the following structure were used:
 -   First row [-5.5  5.5 -5.5  5.5 -5.5  5.5] and column [-5.5  5.5 -5.5  5.5 -5.5  5.5] summing to zero
 -   First row [100 100 100] and column [100 100 100] summing to positive number
 -   First row [-100 -100 -100] and column [-100 -100 -100] summing to negative number
@@ -50,6 +47,8 @@ We ensured that each mock object was properly created during the setup as were n
 
 The **clone()** (3) method was tested using similar positive, negative and zero-partitioning. (... continue ...)
 The IllegalArugmentException error should be thrown when cloning a null array.
+
+!!DISCUSS createNumberArray AND createNumberArray2D here!!
 
 # 3 Test cases developed
 
@@ -138,8 +137,19 @@ Names formatted as scaleXYZ() where X represents lower bound, Y represents upper
 -   calculateRowTotalForEmpty()
 
 ### To test createNumberArray method
+- createNumberArrayEmpty()
+- createNumberArrayOneValue()
+- createNumberArrayThreeValues()
+- createNumberArrayThreeValuesNeg()
+- createNumberArrayThreeValues3Decs()
+- createNumberArrayThreeValuesNotNum()
 
 ### To test createNumberArray2D method
+- createNumberArray2DEmpty()
+- createNumberArray2DByOnePos()
+- createNumberArray2DByThreePos()
+- createNumberArray2DByThreeNeg()
+- createNumberArray2DByThreeSmallNum()
 
 ### To test getCumulativePercentages method
 

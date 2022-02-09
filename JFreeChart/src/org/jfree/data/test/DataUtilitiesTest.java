@@ -312,6 +312,137 @@ public class DataUtilitiesTest extends DataUtilities {
         // tear-down: NONE in this test method
     }
 
+    
+    /* * * * *
+    * TESITNG createNumberArray
+    * * * * */
+        
+    //    Empty array
+    @Test
+    public void createNumberArrayEmpty() {
+        double [] empty= {};
+        Number [] testEmpty= {};
+        Number [] result= DataUtilities.createNumberArray(empty);
+        assertEquals(result, testEmpty);
+    }
+
+
+    //	Array with one value    
+    @Test 
+    public void createNumberArrayOneValue() {
+        double [] oneValue= {10.1};
+        Number[] testOneArr= {10.1}; //Has same value as on
+        Number [] result= DataUtilities.createNumberArray(oneValue);
+        // verify
+        assertEquals(result,testOneArr);
+        // tear-down: NONE in this test method
+    }
+
+
+    //  Array with 3 values
+    @Test
+    public void createNumberArrayThreeValues() {
+        double [] threeValues= {1.1,5.9, 100.01};
+        Number [] testThreeValues={1.1,5.9, 100.01};
+        Number [] result= DataUtilities.createNumberArray(threeValues);
+        // verify
+        assertEquals(result, testThreeValues);
+        // tear-down: NONE in this test method
+    }
+
+    //  Array with 3 negative values
+    @Test
+    public void createNumberArrayThreeValuesNeg() {
+        double [] threeValues= {-1.1,-5.9, -100.01};
+        Number [] testThreeValues={-1.1,-5.9, -100.01};
+        Number [] result= DataUtilities.createNumberArray(threeValues);
+        assertEquals(result, testThreeValues);
+        // tear-down: NONE in this test method
+    }
+
+    //    Array with 3 values and one of them has 3 decimal places
+    @Test
+    public void createNumberArrayThreeValues3Decs() {
+        double [] threeValues= {1.1, -100.001, 3.3};
+        Number [] testThreeValues={1.1, -100.001, 3.3};
+        Number [] result= DataUtilities.createNumberArray(threeValues);
+        assertEquals(result, testThreeValues);
+    }
+
+    //    Array with 3 values and one of them isn't a double- expected to fail
+       @Test
+       public void createNumberArrayThreeValuesNotNum() {
+       	double [] threeValues= {1.1, "abc", 3.3};
+       	Number [] testThreeValues={1.1, "abc", 3.3};
+       	Number [] result= DataUtilities.createNumberArray(threeValues);
+        try{
+       	assertEquals(result, testThreeValues);
+        }
+        catch (Exception err){
+            assertEquals("IllegalArugmentException error should be thrown",IllegalArgumentException.class, err.getClass());
+    	}
+       
+
+    /* * * * *
+    * TESITNG createNumberArray2D
+    * * * * */
+
+    @Test
+    public void createNumberArray2DEmpty() {
+        double[][] byThree = {{},{},{}};
+        Number[][] result = DataUtilities.createNumberArray2D(byThree);
+        // verify
+        assertArrayEquals(result, byThree);
+        // tear-down: NONE in this test method
+    }
+    
+    /*
+     * One by one array
+     */
+
+    @Test 
+    public void createNumberArray2DByOnePos() {
+        double [][] oneValue= {{1.1}};
+    //    	Number [][] testOneValue= {{1.1}};
+        Number [][] result= DataUtilities.createNumberArray2D(oneValue);
+        // verify
+        assertArrayEquals(result, oneValue);
+    }
+    
+    /*
+     * Three by three array 
+     */
+    @Test
+    public void createNumberArray2DByThreePos() {
+        double[][] byThree = {{1,1,1},{1,1,1},{1,1,1}};
+        Number[][] result = DataUtilities.createNumberArray2D(byThree);
+        // verify
+        assertArrayEquals(result, byThree);
+        // tear-down: NONE in this test method
+    }
+
+    /*
+     * three by three array of negative numbers
+     */
+    @Test
+    public void createNumberArray2DByThreeNeg() {
+        double[][] byThree = {{-1,-1,-1},{1,1,1},{-1,-1,-1}};
+        Number[][] result = DataUtilities.createNumberArray2D(byThree);
+        // verify
+        assertArrayEquals(result, byThree);
+        // tear-down: NONE in this test method
+    }
+
+
+    //   has row with small decimal numbers and negative numbers
+    @Test
+    public void createNumberArray2DByThreeSmallNum() {
+        double[][] byThree = {{0.0000000000001,0.192912919394945999, 0.01120305067080},{1,1,1},{-1,-1,-1}};
+        Number[][] result = DataUtilities.createNumberArray2D(byThree);
+        // verify
+        assertArrayEquals(result, byThree);
+        // tear-down: NONE in this test method
+    }
 
     @After
     public void tearDown() throws Exception {

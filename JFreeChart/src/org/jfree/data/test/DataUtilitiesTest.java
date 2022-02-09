@@ -369,20 +369,30 @@ public class DataUtilitiesTest extends DataUtilities {
         assertArrayEquals(result, testThreeValues);
     }
 
-    //    Array with 3 values and one of them isn't a double- expected to fail
-       @Test
-       public void createNumberArrayThreeValuesNotNum() {
-       	double [] threeValues= {1.1, "abc", 3.3};
-       	Number [] testThreeValues={1.1, "abc", 3.3};
-       	Number [] result= DataUtilities.createNumberArray(threeValues);
-        try{
-       	assertArrayEquals(result, testThreeValues);
-        }
-        catch (Exception err){
-            assertEquals("IllegalArugmentException error should be thrown",IllegalArgumentException.class, err.getClass());
-    	}
-       
+   
+	//  Array of 3 values, with some large positive and negative numbers
+	@Test
+	public void createNumberArrayThreeValuesBigNum() {
+	  	double [] threeValues= {1234569.9000000, 999999999.99999, -999999999.99999};
+	  	Number [] testThreeValues={1234569.9000000, 999999999.99999, -999999999.99999};
+	  	Number [] result= DataUtilities.createNumberArray(threeValues);
+	  	assertEquals(result, testThreeValues);
+	}
+	  
+	//Creates a null array- expects to throw exception
+	@Test
+	public void createNumberArrayNull() {
+		double [] threeValues= null;
+		Number [] testThreeValues= null;
+		try {
+			Number [] result= DataUtilities.createNumberArray(threeValues);
+		}
+		catch (Exception err){
+			assertEquals("IllegalArugmentException error should be thrown",IllegalArgumentException.class, err.getClass());
+		}
+	}  
 
+	
     /* * * * *
     * TESITNG createNumberArray2D
     * * * * */
@@ -443,6 +453,23 @@ public class DataUtilitiesTest extends DataUtilities {
         assertArrayEquals(result, byThree);
         // tear-down: NONE in this test method
     }
+    
+    /*
+     * tests a 3 by 5 array containing negative and positive numbers
+     */
+    @Test
+    public void createNumberArray2DThreeByFive() {
+    	double[][] threeByFive= {{12.34569,9.99999, -99.99999},
+    			{12.34569,9.99999, -99.99999},
+    			{12.34569,9.99999, -99.99999},
+    			{12.34569,9.99999, -99.99999},
+    			{12.34569,9.99999, -99.99999}};
+        Number[][] result = DataUtilities.createNumberArray2D(threeByFive);
+        // verify
+        assertArrayEquals(result, threeByFive);
+        // tear-down: NONE in this test method
+    }
+    
 
     @After
     public void tearDown() throws Exception {

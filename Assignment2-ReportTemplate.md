@@ -48,7 +48,11 @@ We ensured that each mock object was properly created during the setup as were n
 The **clone()** (3) method was tested using similar positive, negative and zero-partitioning. (... continue ...)
 The IllegalArugmentException error should be thrown when cloning a null array.
 
-!!DISCUSS createNumberArray AND createNumberArray2D here!!
+The **createNumberArray()** (4) and **createNumberArray2D()** (5) methods tested the creation of positive, negative and empty Numbers arrays of various sizes from corresponding double arrays. 
+
+The **createNumberArray()** method tested the creation of a Number array from a primitive double array. The creation of an empty array, a one value array, and various three value arrays were tested. Of the three value arrays, we tested one for negative numbers, one for all positive numbers, one for numbers with three decimal places, one for large numbers, and one with null input. The null array should throw an IllegalArgumentException error.  
+
+For the **createNumberArray2D()** method, we decided to test for arrays of varying sizes (1x1, 3x3, 3x5) and of varying inputs. Three-by-three arrays were used to test negative arrays, positive arrays, and arrays with small numbers (1E-13) and multiple decimal places. 
 
 # 3 Test cases developed
 
@@ -142,7 +146,8 @@ Names formatted as scaleXYZ() where X represents lower bound, Y represents upper
 - createNumberArrayThreeValues()
 - createNumberArrayThreeValuesNeg()
 - createNumberArrayThreeValues3Decs()
-- createNumberArrayThreeValuesNotNum()
+- createNumberArrayThreeValuesBigNum()
+- createNumberArrayNull()
 
 ### To test createNumberArray2D method
 - createNumberArray2DEmpty()
@@ -150,6 +155,7 @@ Names formatted as scaleXYZ() where X represents lower bound, Y represents upper
 - createNumberArray2DByThreePos()
 - createNumberArray2DByThreeNeg()
 - createNumberArray2DByThreeSmallNum()
+- createNumberArray2DThreeByFive() 
 
 ### To test clone method
 -   cloneZero()

@@ -323,7 +323,7 @@ public class DataUtilitiesTest extends DataUtilities {
         double [] empty= {};
         Number [] testEmpty= {};
         Number [] result= DataUtilities.createNumberArray(empty);
-        assertEquals(result, testEmpty);
+        assertArrayEquals(result, testEmpty);
     }
 
 
@@ -334,7 +334,7 @@ public class DataUtilitiesTest extends DataUtilities {
         Number[] testOneArr= {10.1}; //Has same value as on
         Number [] result= DataUtilities.createNumberArray(oneValue);
         // verify
-        assertEquals(result,testOneArr);
+        assertArrayEquals(result,testOneArr);
         // tear-down: NONE in this test method
     }
 
@@ -346,7 +346,7 @@ public class DataUtilitiesTest extends DataUtilities {
         Number [] testThreeValues={1.1,5.9, 100.01};
         Number [] result= DataUtilities.createNumberArray(threeValues);
         // verify
-        assertEquals(result, testThreeValues);
+        assertArrayEquals(result, testThreeValues);
         // tear-down: NONE in this test method
     }
 
@@ -356,7 +356,7 @@ public class DataUtilitiesTest extends DataUtilities {
         double [] threeValues= {-1.1,-5.9, -100.01};
         Number [] testThreeValues={-1.1,-5.9, -100.01};
         Number [] result= DataUtilities.createNumberArray(threeValues);
-        assertEquals(result, testThreeValues);
+        assertArrayEquals(result, testThreeValues);
         // tear-down: NONE in this test method
     }
 
@@ -366,7 +366,7 @@ public class DataUtilitiesTest extends DataUtilities {
         double [] threeValues= {1.1, -100.001, 3.3};
         Number [] testThreeValues={1.1, -100.001, 3.3};
         Number [] result= DataUtilities.createNumberArray(threeValues);
-        assertEquals(result, testThreeValues);
+        assertArrayEquals(result, testThreeValues);
     }
 
     //    Array with 3 values and one of them isn't a double- expected to fail
@@ -376,7 +376,7 @@ public class DataUtilitiesTest extends DataUtilities {
        	Number [] testThreeValues={1.1, "abc", 3.3};
        	Number [] result= DataUtilities.createNumberArray(threeValues);
         try{
-       	assertEquals(result, testThreeValues);
+       	assertArrayEquals(result, testThreeValues);
         }
         catch (Exception err){
             assertEquals("IllegalArugmentException error should be thrown",IllegalArgumentException.class, err.getClass());
@@ -453,3 +453,4 @@ public class DataUtilitiesTest extends DataUtilities {
     }
 
 }
+	

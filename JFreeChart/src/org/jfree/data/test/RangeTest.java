@@ -365,58 +365,22 @@ public class RangeTest {
      * TESITNG scale
      * * * * */
 
-    /* Testing scale method on a range spanning negative to negative using scale of 1/2
+    /* Testing scale method on a range spanning negative to zero using scale of 0
      */
     @Test
-    public void scaleNegNegFrac() {
-    	Range testRange = new Range(-3, -1.5);
-        assertEquals("The new range should be -3 to -1.5", testRange,
-        Range.scale(exampleRangeNegNeg, 0.5));
+    public void scaleNegZeroZero() {
+    	Range testRange = new Range(0, 0);
+        assertEquals("The new range should be 0 to 0", testRange,
+        Range.scale(exampleRangeNegZero, 0));
     }
-
-    /* Testing scale method on a range spanning one number using scale of 1/2
+    
+    /* Testing scale method on a range spanning zero to positive using scale of 0
      */
     @Test
-    public void scalePosPosFrac() {
-    	Range testRange = new Range(1.5, 1.5);
-        assertEquals("The new range should be 1.5 to 1.5", testRange,
-        Range.scale(exampleRangeEqual, 0.5));
-    }
-
-    /* Testing scale method on a range spanning negative to positive using scale of 1/2
-     */
-    @Test
-    public void scaleNegPosFrac() {
-    	Range testRange = new Range(-1.25, 1.25);
-        assertEquals("The new range should be -1.25 to 1.25", testRange,
-        Range.scale(exampleRangeNegPos, 0.5));
-    }
-
-    /* Testing scale method on a range spanning negative to negative using scale of 2
-     */
-    @Test
-    public void scaleNegNegPos() {
-    	Range testRange = new Range(-12, -6);
-        assertEquals("The new range should be -12 to -6", testRange,
-        Range.scale(exampleRangeNegNeg, 2));
-    }
-
-    /* Testing scale method on a range spanning one number using scale of 2
-     */
-    @Test
-    public void scalePosPosPos() {
-    	Range testRange = new Range(6, 6);
-        assertEquals("The new range should be 6 to 6", testRange,
-        Range.scale(exampleRangeEqual, 2));
-    }
-
-    /* Testing scale method on a range spanning negative to positive using scale of 2
-     */
-    @Test
-    public void scaleNegPosPos() {
-    	Range testRange = new Range(-5, 5);
-        assertEquals("The new range should be -5 to 5", testRange,
-        Range.scale(exampleRangeNegPos, 2));
+    public void scaleZeroPosZero() {
+    	Range testRange = new Range(0, 0);
+        assertEquals("The new range should be 0 to 0", testRange,
+        Range.scale(exampleRangeZeroPos, 0));
     }
 
     /* Testing scale method on a range spanning negative to negative using scale of 0
@@ -444,6 +408,141 @@ public class RangeTest {
     	Range testRange = new Range(0, 0);
         assertEquals("The new range should be 0 to 0", testRange,
         Range.scale(exampleRangeNegPos, 0));
+    }
+
+    /* Testing scale method on a range spanning negative to zero using scale of 1/2
+     */
+    @Test
+    public void scaleNegZeroFrac() {
+    	Range testRange = new Range(-1.5, 0);
+        assertEquals("The new range should be -1.5 to 0", testRange,
+        Range.scale(exampleRangeNegZero, 0.5));
+    }
+    
+    /* Testing scale method on a range spanning zero to positive using scale of 1/2
+     */
+    @Test
+    public void scaleZeroPosFrac() {
+    	Range testRange = new Range(0, 1.5);
+        assertEquals("The new range should be 0 to 1.5", testRange,
+        Range.scale(exampleRangeZeroPos, 0.5));
+    }
+    
+    /* Testing scale method on a range spanning negative to negative using scale of 1/2
+     */
+    @Test
+    public void scaleNegNegFrac() {
+    	Range testRange = new Range(-3, -1.5);
+        assertEquals("The new range should be -3 to -1.5", testRange,
+        Range.scale(exampleRangeNegNeg, 0.5));
+    }
+
+    /* Testing scale method on a range spanning one number using scale of 1/2
+     */
+    @Test
+    public void scalePosPosFrac() {
+    	Range testRange = new Range(1.5, 1.5);
+        assertEquals("The new range should be 1.5 to 1.5", testRange,
+        Range.scale(exampleRangeEqual, 0.5));
+    }
+
+    /* Testing scale method on a range spanning negative to positive using scale of 1/2
+     */
+    @Test
+    public void scaleNegPosFrac() {
+    	Range testRange = new Range(-1.25, 1.25);
+        assertEquals("The new range should be -1.25 to 1.25", testRange,
+        Range.scale(exampleRangeNegPos, 0.5));
+    }
+    
+    /* Testing scale method on a range spanning negative to zero using scale of 1
+     */
+    @Test
+    public void scaleNegZeroOne() {
+    	Range testRange = new Range(-3, 0);
+        assertEquals("The new range should be -3 to 0", testRange,
+        Range.scale(exampleRangeNegZero, 1));
+    }
+    
+    /* Testing scale method on a range spanning zero to positive using scale of 1
+     */
+    @Test
+    public void scaleZeroPosOne() {
+    	Range testRange = new Range(0, 3);
+        assertEquals("The new range should be 0 to 3", testRange,
+        Range.scale(exampleRangeZeroPos, 1));
+    }
+
+    /* Testing scale method on a range spanning negative to negative using scale of 1
+     */
+    @Test
+    public void scaleNegNegOne() {
+    	Range testRange = new Range(-6, -3);
+        assertEquals("The new range should be -6 to -3", testRange,
+        Range.scale(exampleRangeNegNeg, 1));
+    }
+
+    /* Testing scale method on a range spanning one number using scale of 1
+     */
+    @Test
+    public void scalePosPosOne() {
+    	Range testRange = new Range(3, 3);
+        assertEquals("The new range should be 3 to 3", testRange,
+        Range.scale(exampleRangeEqual, 1));
+    }
+
+    /* Testing scale method on a range spanning negative to positive using scale of 1
+     */
+    @Test
+    public void scaleNegPosOne() {
+    	Range testRange = new Range(-2.5, 2.5);
+        assertEquals("The new range should be -2.5 to 2.5", testRange,
+        Range.scale(exampleRangeNegPos, 1));
+    }
+    
+    /* Testing scale method on a range spanning negative to zero using scale of 2
+     */
+    @Test
+    public void scaleNegZeroPos() {
+    	Range testRange = new Range(-6, 0);
+        assertEquals("The new range should be -6 to 0", testRange,
+        Range.scale(exampleRangeNegZero, 2));
+    }
+    
+    /* Testing scale method on a range spanning zero to positive using scale of 2
+     */
+    @Test
+    public void scaleZeroPosPos() {
+    	Range testRange = new Range(0, 6);
+        assertEquals("The new range should be 0 to 6", testRange,
+        Range.scale(exampleRangeZeroPos, 2));
+    }
+
+    /* Testing scale method on a range spanning negative to negative using scale of 2
+     */
+    @Test
+    public void scaleNegNegPos() {
+    	Range testRange = new Range(-12, -6);
+        assertEquals("The new range should be -12 to -6", testRange,
+        Range.scale(exampleRangeNegNeg, 2));
+    }
+
+    /* Testing scale method on a range spanning one number using scale of 2
+     */
+    @Test
+    public void scalePosPosPos() {
+    	Range testRange = new Range(6, 6);
+        assertEquals("The new range should be 6 to 6", testRange,
+        Range.scale(exampleRangeEqual, 2));
+    }
+
+    /* Testing scale method on a range spanning negative to positive using scale of 2
+     */
+    @Test
+    public void scaleNegPosPos() {
+    	Range testRange = new Range(-5, 5);
+        assertEquals("The new range should be -5 to 5", testRange,
+        Range.scale(exampleRangeNegPos, 2));
     }
 
     @After

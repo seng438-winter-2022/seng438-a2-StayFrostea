@@ -48,11 +48,11 @@ We ensured that each mock object was properly created during the setup as were n
 The **clone()** (3) method was tested using similar positive, negative and zero-partitioning. (... continue ...)
 The IllegalArugmentException error should be thrown when cloning a null array.
 
-The **createNumberArray()** (4) and **createNumberArray2D()** (5) methods tested the creation of positive, negative and empty Numbers arrays of various sizes from corresponding double arrays. 
+The **createNumberArray()** (4) and **createNumberArray2D()** (5) methods tested the creation of positive, negative and empty Numbers arrays of various sizes from corresponding double arrays.
 
 The **createNumberArray()** method tested the creation of a Number array from a primitive double array. The creation of an empty array, a one value array, and various three value arrays were tested. Of the three value arrays, we tested one for negative numbers, one for all positive numbers, one for numbers with three decimal places, one for large numbers, and one with null input. The null array should throw an IllegalArgumentException error.  
 
-For the **createNumberArray2D()** method, we decided to test for arrays of varying sizes (1x1, 3x3, 3x5) and of varying inputs. Three-by-three arrays were used to test negative arrays, positive arrays, and arrays with small numbers (1E-13) and multiple decimal places. 
+For the **createNumberArray2D()** method, we decided to test for arrays of varying sizes (1x1, 3x3, 3x5) and of varying inputs. Three-by-three arrays were used to test negative arrays, positive arrays, and arrays with small numbers (1E-13) and multiple decimal places.
 
 # 3 Test cases developed
 
@@ -169,7 +169,7 @@ Names formatted as scaleXYZ() where X represents lower bound, Y represents upper
 - createNumberArray2DByThreePos()
 - createNumberArray2DByThreeNeg()
 - createNumberArray2DByThreeSmallNum()
-- createNumberArray2DThreeByFive() 
+- createNumberArray2DThreeByFive()
 
 ### To test clone method
 -   cloneZero()
@@ -212,6 +212,10 @@ Each group member has prepared for 1 simple test case and 1 stub/mock test case.
 - Creating the mocks in such a fashion that they could be reused for multiple test cases and test multiple functions without overcomplicating the values.
 - Minimizing test cases while providing adequate code coverage. Hard to know when to stop writing test cases.
 - Initially during setup there were some issues and differences between those of us who were using Mac vs. Windows vs. Linux. Some required an additional (non-included) jar file in order for even the example test case to run.
+
+### Errors Found Through Tests
+- Through our range class tests, we noticed that we had to include a specific decimal precision in our assert statements when using decimal ranges. Without this precision, the decimal ranges would round to unintended values and the assert would fail.
+- Through our range class tests, we also noticed that the shift() method would not allow ranges to shift below zero, unless the third parameter was set to true.
 
 ## Theoretical Issues
 

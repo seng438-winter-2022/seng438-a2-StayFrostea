@@ -16,7 +16,7 @@ The purpose of this lab was to learn the process of developing tests using JUnit
 # 2 Detailed description of unit test strategy
 
 ## RangeTest
-For the RangeTest methods **getLowerBound** (1), **getUpperBound** (2), **getLength** (3) and **shift** (4), we decided to test different equivalence classes to encompass negative, positive, zero, equal, and various decimal precisions. To do this, we created 6 Range variables with the following lower and upper bounds:
+For the RangeTest methods **getLowerBound** (1), **getUpperBound** (2), **getLength** (3), **shift** (4), and **scale** (5) we decided to test different equivalence classes to encompass negative, positive, zero, equal, and various decimal precisions. To do this, we created 6 Range variables with the following lower and upper bounds:
 -   (-3, 0) - negative to positive
 -   (0, 3) - zero to positive
 -   (-2.5, 2.5) - negative to positive, decimal accurate to tenth place
@@ -32,7 +32,7 @@ For the RangeTest methods **getLowerBound** (1), **getUpperBound** (2), **getLen
 
 <br>For the method **shift** (4), we decided to test the above ranges with the shift values -1, 0, and 1. This tests the three general cases of use for this method: shifting by a negative number, positive number, and by zero.
 
-<br>For the method **scale** (5), we decided to test the above ranges with the scale values -2, 0, 0.5, 1, and 2, as these represent negative scaling, zeroing, halving, maintaining the current values and doubling-- all of which require different method behaviour.
+<br>For the method **scale** (5), we decided to test the above ranges with the scale values 0, 0.5, 1, and 2, as these represent zeroing, halving, maintaining the current values and doubling-- all of which require different method behaviour. We did not test negative scaling factors, as the Javadocs denoted scaling factor must be "non-negative".
 
 ## DataUtilitiesTest
 Five methods from the DataUtilities class were tested, namely: **calculateColumnTotal** (1), **calculateRowTotal** (2), **clone** (3), **createNumberArray** (4), and **createNumberArray2D** (5). In calculating column and row totals, we tested cases where the methods returned both negative and positive totals, as well as zero. We also considered the case of empty inputs, where the methods were expected to also return zero, and the case of null inputs, where the methods were expected to throw an error. Mock Values2D objects with the following structure were used:
@@ -114,17 +114,31 @@ Names formatted as shiftXYZ() where X represents lower bound, Y represents upper
 
 ### To test scale method
 Names formatted as scaleXYZ() where X represents lower bound, Y represents upper bound, and Z represents scaling factor.
+- scaleNegZeroZero()
+- scaleZeroPosZero()
+- scaleNegNegZero()
+- scalePosPosZero()
+- scaleNegPosZero()
+
+
+- scaleNegZeroFrac()
+- scaleZeroPosFrac()
 - scaleNegNegFrac()
 - scalePosPosFrac()
 - scaleNegPosFrac()
 
+- scaleNegZeroOne()
+- scaleZeroPosOne()
+- scaleNegNegOne()
+- scalePosPosOne()
+- scaleNegPosOne()
+
+
+- scaleNegZeroPos()
+- scaleZeroPosPos()
 - scaleNegNegPos()
 - scalePosPosPos()
 - scaleNegPosPos()
-
-- scaleNegNegZero()
-- scalePosPosZero()
-- scaleNegPosZero()
 
 ## DataUtilitiesTest
 
